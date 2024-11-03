@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Expense Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-blue-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4 text-center ">Income Expense Calculator</h1>
+        
+        <div class="mb-4">
+            <input id="description" type="text" placeholder="Description" class="border p-2 mr-2 w-1/3" required>
+            <input id="amount" type="number" placeholder="Amount" class="border p-2 mr-2 w-1/3" required>
+            <br><br>
+            <select id="type" class="border p-2 mr-2 w-1/3">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <button onclick="addEntry()" class="bg-blue-500 text-white p-2">Add Entry</button>
+            <button onclick="resetFields()" class="bg-gray-300 p-2">Reset</button>
+        </div>
+
+        <div class="mb-4">
+            <label class="mr-2">Filter: </label>
+            <label><input type="radio" name="filter" value="all" checked onclick="filterEntries()"> All</label>
+            <label><input type="radio" name="filter" value="income" onclick="filterEntries()"> Income</label>
+            <label><input type="radio" name="filter" value="expense" onclick="filterEntries()"> Expense</label>
+        </div>
+
+        <ul id="entryList" class="list-none"  ></ul>
+
+        <div id="summary" class="mt-4">
+            <h2 class="font-bold">Summary</h2>
+            <p>Total Income: $<span id="totalIncome">0</span></p>
+            <p>Total Expenses: $<span id="totalExpenses">0</span></p>
+            <p>Net Balance: $<span id="netBalance">0</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
